@@ -1,8 +1,8 @@
 // Initialize Firebase with your config
 firebase.initializeApp({
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
+  apiKey: "AIzaSyBGrx8Mcn67hkuwDV7JDCXMrgNFEWKeO0M",
+  authDomain: "todo-386a3.firebaseapp.com",
+  projectId: "todo-386a3",
 });
 
 const db = firebase.firestore();
@@ -35,9 +35,9 @@ function renderTasks(doc) {
 // Real-time listener for tasks
 db.collection("tasks")
   .orderBy("timestamp", "desc")
-  .onSnapshot(snapshot => {
+  .onSnapshot((snapshot) => {
     const changes = snapshot.docChanges();
-    changes.forEach(change => {
+    changes.forEach((change) => {
       if (change.type === "added") {
         renderTasks(change.doc);
       }
